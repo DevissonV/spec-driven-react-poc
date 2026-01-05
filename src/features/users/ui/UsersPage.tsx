@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { Alert } from "../../../shared/components/Alert";
 import { Button } from "../../../shared/components/Button";
 import { Dialog } from "../../../shared/components/Dialog";
@@ -54,7 +54,6 @@ export function UsersPage() {
       <div className="grid">
         <UserForm
           mode={vm.formMode}
-          editingId={vm.editingId}
           validationErrors={vm.validationErrors}
           onSubmit={controller.submit}
           onCancelEdit={controller.cancelEdit}
@@ -91,7 +90,7 @@ export function UsersPage() {
       />
 
       {vm.status === "error" && (
-        <Button variant="secondary" onClick={controller.retryPersist} disabled={vm.status === "saving"}>
+        <Button variant="secondary" onClick={controller.retryPersist} disabled={busy}>
           Reintentar persistencia
         </Button>
       )}

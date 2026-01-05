@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../../../shared/components/Button";
 import { InputField } from "../../../shared/components/InputField";
 import { FormMode, User, ValidationErrors } from "../types";
 
 type Props = {
   mode: FormMode;
-  editingId?: string;
   validationErrors: ValidationErrors;
   onSubmit: (user: User) => void;
   onCancelEdit: () => void;
@@ -17,7 +16,6 @@ const EMPTY: User = { document: "", firstName: "", lastName: "", email: "" };
 
 export function UserForm({
   mode,
-  editingId,
   validationErrors,
   onSubmit,
   onCancelEdit,
@@ -33,8 +31,6 @@ export function UserForm({
       setForm(EMPTY);
     }
   }, [mode, preset]);
-
-  const submitDisabled = disabled;
 
   return (
     <div className="card">
@@ -57,7 +53,7 @@ export function UserForm({
           placeholder="CC12345"
           onChange={(value) => setForm((prev) => ({ ...prev, document: value }))}
           error={validationErrors.document}
-          disabled={submitDisabled}
+          disabled={disabled}
         />
         <InputField
           label="Nombre"
@@ -66,7 +62,7 @@ export function UserForm({
           placeholder="Ana"
           onChange={(value) => setForm((prev) => ({ ...prev, firstName: value }))}
           error={validationErrors.firstName}
-          disabled={submitDisabled}
+          disabled={disabled}
         />
         <InputField
           label="Apellido"
@@ -75,7 +71,7 @@ export function UserForm({
           placeholder="García"
           onChange={(value) => setForm((prev) => ({ ...prev, lastName: value }))}
           error={validationErrors.lastName}
-          disabled={submitDisabled}
+          disabled={disabled}
         />
         <InputField
           label="Correo"
@@ -85,10 +81,10 @@ export function UserForm({
           placeholder="ana@example.com"
           onChange={(value) => setForm((prev) => ({ ...prev, email: value }))}
           error={validationErrors.email}
-          disabled={submitDisabled}
+          disabled={disabled}
         />
         <div style={{ display: "flex", gap: 10, marginTop: 6 }}>
-          <Button type="submit" disabled={submitDisabled}>
+          <Button type="submit" disabled={disabled}>
             {mode === "edit" ? "Guardar cambios" : "Crear usuario"}
           </Button>
           {mode === "edit" && (

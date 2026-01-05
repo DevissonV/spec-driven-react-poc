@@ -1,5 +1,3 @@
-import React from "react";
-
 type Props = {
   tone: "info" | "error" | "success";
   title?: string;

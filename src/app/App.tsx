@@ -1,4 +1,3 @@
-import React from "react";
 import { UsersPage } from "../features/users/ui/UsersPage";
 
 function App() {

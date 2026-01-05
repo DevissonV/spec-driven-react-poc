@@ -1,5 +1,3 @@
-import React from "react";
-
 export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -44,7 +42,7 @@ function parseStyle(styleString: string): React.CSSProperties {
     const [prop, value] = chunk.split(":");
     if (prop && value) {
       const key = prop.trim().replace(/-([a-z])/g, (_, c) => (c ? c.toUpperCase() : ""));
-      acc[key as keyof React.CSSProperties] = value.trim();
+      (acc as any)[key] = value.trim();
     }
     return acc;
   }, {});

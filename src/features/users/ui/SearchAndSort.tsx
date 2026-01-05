@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "../../../shared/components/Button";
 import { SortBy, SortDirection } from "../../../shared/utils/sorters";
 
