@@ -1,0 +1,3 @@
+# Spec ownership
+/docs/specs/_ONE_SPEC/** @lead-approver
+/docs/specs/features/users/** @frontend-owner

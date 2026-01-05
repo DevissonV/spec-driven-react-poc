@@ -1,0 +1,82 @@
+# ============================
+# Dependencies
+# ============================
+node_modules/
+
+# ============================
+# Build outputs
+# ============================
+dist/
+build/
+out/
+
+# ============================
+# Environment variables
+# ============================
+.env
+.env.*
+!.env.example
+
+# ============================
+# Logs
+# ============================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# ============================
+# OS / Editor files
+# ============================
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# JetBrains
+.idea/
+*.iml
+
+# ============================
+# Testing / Coverage
+# ============================
+coverage/
+.nyc_output/
+
+# ============================
+# Cache / Temp
+# ============================
+.cache/
+.tmp/
+.temp/
+.eslintcache
+.stylelintcache
+
+# ============================
+# Local tooling / generators
+# ============================
+specify.lock
+specify-cache/
+.ai-cache/
+.prompt-cache/
+
+# ============================
+# Runtime artifacts
+# ============================
+*.pid
+*.seed
+
+# ============================
+# TypeScript (if used)
+# ============================
+*.tsbuildinfo
+
+# ============================
+# DO NOT IGNORE
+# ============================
+# Specs under docs/specs/** are part of**
