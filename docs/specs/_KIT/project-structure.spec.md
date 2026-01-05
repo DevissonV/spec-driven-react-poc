@@ -18,6 +18,7 @@
 - Import rules: cualquier uso de un feature debe ir vía src/features/<feature>/index.ts; prohibido importar rutas internas de otro feature.
 - Nombres: archivos de UI con sufijo View/Page/Form; adaptadores con sufijo StorageAdapter; validadores con sufijo Validator; servicios con Service.
 - Sin dependencias cíclicas; importaciones siguen dirección app → features → shared.
+- Documentación: funciones/tipos/componentes públicos llevan JSDoc; privados opcionales pero recomendados.
 
 ## Criterios de aceptación
 - Given la estructura, when se revisan imports, then ninguna va de shared a features ni entre features.
