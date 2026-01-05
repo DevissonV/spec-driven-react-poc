@@ -1,15 +1,30 @@
 import { Button } from "../../../shared/components/Button";
 import { SortBy, SortDirection } from "../../../shared/utils/sorters";
 
+/**
+ * Props del componente SearchAndSort
+ */
 type Props = {
+  /** Texto de búsqueda actual */
   search: string;
+  /** Criterio de ordenamiento actual */
   sortBy: SortBy;
+  /** Dirección del ordenamiento */
   sortDirection: SortDirection;
+  /** Callback al cambiar el texto de búsqueda */
   onSearch: (value: string) => void;
+  /** Callback al cambiar el criterio de ordenamiento */
   onSortChange: (value: SortBy) => void;
+  /** Callback al alternar la dirección */
   onToggleDirection: () => void;
 };
 
+/**
+ * Controles de búsqueda y ordenamiento
+ * @param props - Propiedades del componente
+ * @see docs/specs/features/users/ui.spec.md - RFC-UI-002, RFC-UI-003
+ * @see docs/specs/features/users/feature-users.spec.md - RFC-USR-005, RFC-USR-006
+ */
 export function SearchAndSort({
   search,
   sortBy,

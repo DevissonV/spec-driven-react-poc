@@ -1,7 +1,16 @@
+/**
+ * Variantes visuales del botón
+ * @see docs/specs/_KIT/non-functional.spec.md - NF-005
+ */
 export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger";
 
+/**
+ * Props del componente Button
+ */
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  /** Variante visual del botón */
   variant?: ButtonVariant;
+  /** Si true, el botón ocupa el ancho completo */
   block?: boolean;
 };
 
@@ -16,6 +25,11 @@ const variantStyles: Record<ButtonVariant, string> = {
     "background: rgba(239, 68, 68, 0.18); color: #fee2e2; border: 1px solid rgba(239, 68, 68, 0.45);"
 };
 
+/**
+ * Botón reutilizable con variantes de diseño
+ * @param props - Propiedades del botón
+ * @see docs/specs/features/users/ui.spec.md - RFC-UI-008
+ */
 export function Button({ variant = "primary", block, style, ...rest }: ButtonProps) {
   return (
     <button

@@ -1,4 +1,4 @@
-import { UsersPage } from "../features/users/ui/UsersPage";
+import { UsersPage } from "../features/users";
 
 function App() {
   return <UsersPage />;

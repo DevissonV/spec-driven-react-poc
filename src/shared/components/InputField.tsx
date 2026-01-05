@@ -1,17 +1,35 @@
 import React from "react";
 
+/**
+ * Props del componente InputField
+ */
 type Props = {
+  /** Etiqueta del campo */
   label: string;
+  /** Nombre del campo en el formulario */
   name: string;
+  /** Valor actual del campo */
   value: string;
+  /** Texto de placeholder opcional */
   placeholder?: string;
+  /** Tipo de input HTML */
   type?: string;
+  /** Callback al cambiar el valor */
   onChange: (value: string) => void;
+  /** Callback al salir del campo */
   onBlur?: () => void;
+  /** Mensaje de error de validación */
   error?: string;
+  /** Si el campo está deshabilitado */
   disabled?: boolean;
 };
 
+/**
+ * Campo de entrada con label, validación y accesibilidad
+ * @param props - Propiedades del input
+ * @see docs/specs/features/users/ui.spec.md - RFC-UI-008
+ * @see docs/specs/features/users/validation.spec.md
+ */
 export function InputField({
   label,
   name,

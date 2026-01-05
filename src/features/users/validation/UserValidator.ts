@@ -3,11 +3,25 @@ import { User, ValidationErrors } from "../types";
 const DOC_REGEX = /^[A-Za-z0-9]{5,20}$/;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+/**
+ * Resultado de la validación de usuario
+ */
 export type ValidationResult = {
+  /** Si la validación pasó sin errores */
   ok: boolean;
+  /** Errores de validación por campo */
   errors: ValidationErrors;
 };
 
+/**
+ * Valida un usuario contra las reglas de negocio
+ * @param input - Usuario a validar
+ * @param existing - Lista de usuarios existentes (para validar unicidad)
+ * @param options - Opciones de validación
+ * @param options.editingOriginalId - ID original al editar (para excluirlo de la validación de unicidad)
+ * @returns Resultado de la validación con errores si los hay
+ * @see docs/specs/features/users/validation.spec.md - RFC-VAL-001 a RFC-VAL-005
+ */
 export function validateUser(
   input: User,
   existing: User[],

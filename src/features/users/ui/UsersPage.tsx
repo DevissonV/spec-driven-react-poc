@@ -9,6 +9,12 @@ import { UserTable } from "./UserTable";
 import { useUsersController } from "../state/useUsersController";
 import { User } from "../types";
 
+/**
+ * Página principal de gestión de usuarios
+ * Orquesta CRUD, validación, búsqueda y ordenamiento
+ * @see docs/specs/features/users/ui.spec.md
+ * @see docs/specs/_KIT/acceptance.spec.md
+ */
 export function UsersPage() {
   const controller = useUsersController();
   const { vm } = controller;

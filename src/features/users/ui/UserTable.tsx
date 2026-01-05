@@ -1,13 +1,25 @@
 import { Button } from "../../../shared/components/Button";
 import { User } from "../types";
 
+/**
+ * Props del componente UserTable
+ */
 type Props = {
+  /** Lista de usuarios a mostrar */
   users: User[];
+  /** Callback al editar un usuario */
   onEdit: (user: User) => void;
+  /** Callback al eliminar un usuario */
   onDelete: (user: User) => void;
+  /** Si las acciones están deshabilitadas */
   disabled?: boolean;
 };
 
+/**
+ * Tabla para mostrar lista de usuarios con acciones
+ * @param props - Propiedades de la tabla
+ * @see docs/specs/features/users/ui.spec.md - RFC-UI-001
+ */
 export function UserTable({ users, onEdit, onDelete, disabled }: Props) {
   return (
     <div className="card" style={{ overflowX: "auto" }}>

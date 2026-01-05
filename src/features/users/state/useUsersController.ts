@@ -4,21 +4,38 @@ import { persistUsers, loadUsers } from "../storage/UsersStorageAdapter";
 import { validateUser, ValidationResult } from "../validation/UserValidator";
 import { FormMode, User, UsersStateStatus, ValidationErrors } from "../types";
 
+/**
+ * Modelo de vista del estado de usuarios
+ * @see docs/specs/features/users/state.spec.md
+ */
 export type UsersViewModel = {
+  /** Estado actual de la operación */
   status: UsersStateStatus;
+  /** Lista completa de usuarios */
   users: User[];
+  /** Lista filtrada y ordenada para mostrar */
   filtered: User[];
+  /** Modo del formulario (crear o editar) */
   formMode: FormMode;
+  /** ID del usuario siendo editado */
   editingId?: string;
+  /** Mensaje de feedback al usuario */
   feedback?: { type: "success" | "info" | "error"; message: string };
+  /** Errores de validación por campo */
   validationErrors: ValidationErrors;
+  /** Texto de búsqueda */
   search: string;
+  /** Configuración de ordenamiento */
   sort: { by: "document" | "name"; direction: "asc" | "desc" };
+  /** Usuario seleccionado para eliminar */
   selection?: User;
 };
 
 type SubmitPayload = Omit<User, never>;
 
+/**
+ * Controlador del estado de usuarios
+ */
 type Controller = {
   vm: UsersViewModel;
   submit: (payload: SubmitPayload) => void;
@@ -33,6 +50,12 @@ type Controller = {
   retryPersist: () => void;
 };
 
+/**
+ * Hook para gestionar el estado y lógica de negocio de usuarios
+ * @returns Controlador conViewModel y acciones
+ * @see docs/specs/features/users/state.spec.md - RFC-ST-001 a RFC-ST-005
+ * @see docs/specs/features/users/feature-users.spec.md - RFC-USR-001 a RFC-USR-007
+ */
 export function useUsersController(): Controller {
   const [users, setUsers] = useState<User[]>([]);
   const [status, setStatus] = useState<UsersStateStatus>("loading");

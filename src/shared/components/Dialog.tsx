@@ -1,16 +1,32 @@
 import { Button } from "./Button";
 
+/**
+ * Props del componente Dialog
+ */
 type Props = {
+  /** Si el diálogo está visible */
   open: boolean;
+  /** Título del diálogo */
   title: string;
+  /** Descripción opcional */
   description?: string;
+  /** Texto del botón de confirmación */
   confirmLabel?: string;
+  /** Texto del botón de cancelación */
   cancelLabel?: string;
+  /** Tono visual del diálogo */
   tone?: "danger" | "neutral";
+  /** Callback al confirmar */
   onConfirm: () => void;
+  /** Callback al cerrar */
   onClose: () => void;
 };
 
+/**
+ * Diálogo modal para confirmaciones
+ * @param props - Propiedades del diálogo
+ * @see docs/specs/features/users/feature-users.spec.md - RFC-USR-003
+ */
 export function Dialog({
   open,
   title,

@@ -3,17 +3,32 @@ import { Button } from "../../../shared/components/Button";
 import { InputField } from "../../../shared/components/InputField";
 import { FormMode, User, ValidationErrors } from "../types";
 
+/**
+ * Props del componente UserForm
+ */
 type Props = {
+  /** Modo del formulario (crear o editar) */
   mode: FormMode;
+  /** Errores de validación */
   validationErrors: ValidationErrors;
+  /** Callback al enviar el formulario */
   onSubmit: (user: User) => void;
+  /** Callback al cancelar la edición */
   onCancelEdit: () => void;
+  /** Si el formulario está deshabilitado */
   disabled?: boolean;
+  /** Usuario precargado para edición */
   preset?: User;
 };
 
 const EMPTY: User = { document: "", firstName: "", lastName: "", email: "" };
 
+/**
+ * Formulario para crear o editar usuarios
+ * @param props - Propiedades del formulario
+ * @see docs/specs/features/users/ui.spec.md - RFC-UI-004
+ * @see docs/specs/features/users/validation.spec.md
+ */
 export function UserForm({
   mode,
   validationErrors,
